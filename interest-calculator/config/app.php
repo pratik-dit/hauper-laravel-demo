@@ -123,6 +123,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'mail_from' => env('MAIL_FROM', 'notification@DemoProject.com'),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

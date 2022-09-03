@@ -8,12 +8,14 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ route('home.index') }}" class="nav-link px-2 text-secondary">Home</a></li>
         @auth
-        <li><a href="{{ route('products.list') }}" class="nav-link px-2 text-secondary">Products</a></li>
+        <li><a href="" class="nav-link px-2 text-secondary">Add Interest</a></li>
         @endauth
       </ul>
 
       @auth
-        {{auth()->user()->name}}
+        <div style="padding-right:5px;">
+          {{auth()->user()->username}}
+        </div>
         <div class="text-end">
           <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
         </div>
