@@ -44,5 +44,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        /**
+         * Interest Routes
+         */
+        Route::middleware('can:isUser')->prefix('interest')->group(function () {
+            $ctrl = "UserInterestController";
+            Route::get('/', "{$ctrl}@index")->name('interest.list');
+            Route::get('/create', "{$ctrl}@create")->name('interest.create');
+            Route::post('/', "{$ctrl}@store")->name('interest.store');
+        });
+        Route::middleware('can:isAdmin')->prefix('user')->group(function () {
+            $ctrl = "UserController";
+            Route::get('/', "{$ctrl}@index")->name('user.list');
+        });
     });
 });

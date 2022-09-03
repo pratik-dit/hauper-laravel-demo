@@ -8,7 +8,11 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ route('home.index') }}" class="nav-link px-2 text-secondary">Home</a></li>
         @auth
-        <li><a href="" class="nav-link px-2 text-secondary">Add Interest</a></li>
+          @can('isAdmin')
+          <li><a href="{{ route('user.list') }}" class="nav-link px-2 text-secondary">User</a></li>
+          @elsecan('isUser')
+            <li><a href="{{ route('interest.list') }}" class="nav-link px-2 text-secondary">Interest</a></li>
+          @endcan
         @endauth
       </ul>
 
